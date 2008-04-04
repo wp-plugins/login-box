@@ -18,47 +18,37 @@ This section describes how to install the plugin and get it working.
 
 1. Extract the downloaded file and move the login-box folder to the plug-ins directory of WordPress (normally localized at <wordpress_direcorty>/wp-content/plugins/).
 2. In the WordPress admin, access “Plug-ins” area and activate the Login-box plug-in.
-3. Optional: if your WordPress theme doesn't have the wp_head hook
+3. Optional: if your WordPress theme doesn't have the wp_head hook, open *header.php* and put this code into <head> and </head>: '<?php wp_head(); ?>'
+4. Optional: if your WordPress theme doesn't have the wp_footer hook, open *footer.php* and put them: '<?php wp_footer(); ?>'
 
 == Frequently Asked Questions ==
 
 = Login-box don't be showed / Login-box appear in the footer without style =
 
-First, try logout. Login-box doesn't work if you are *already* logged.
-
-If that doesn't work, you will need to edit your theme. Open *header.php* and put this code into <head> and </head>:
-	<?php wp_head(); ?>
-Then, open the *footer.php* and put them:
-	<?php wp_footer(); ?>
+Try logout. Login-box doesn't work if you are *already* logged.
 
 = Can open/close the Login-box with a link? =
 
 Yes. Just use the link syntax:
 
-	<a href="http://www.myblog.com/wp-login.php" **rel="loginbox-toggle"**>Make the box!</a>
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1.png` (or jpg, jpeg, gif)
-2. This is the second screen shot
+'<a href="http://www.myblog.com/wp-login.php" **rel="loginbox-toggle"**>Make the box!</a>'
 
 == Options ==
 
 Open login-box.php in a text editor or in embbed WordPress Plug-in editor, and find this lines:
 
-	11. @define("LB_THEME", "**wpclassic**");
+11. @define("LB_THEME", "**wpclassic**");
 
 In this line, put the name of the theme that you like to use. You can download new themes on web or make your theme based in the default "wpclassic".
 
-	14. @define("LB_KEY", "**e**");
+14. @define("LB_KEY", "**e**");
 
 Choose the key (case insensitive) that will be open/close Login-box with Ctrl or Alt. Note that some keys executes especial functions in your browser (and in browser of your readers!). and them will be cancelled by Login-box. (e.g. Ctrl + A selects all). I recommend that you leave the default value "e".
 
-	19. @define("LB_CTRL", **true**);
+19. @define("LB_CTRL", **true**);
 
 Also, you can define false here and deactivate the Ctrl use of Login-box. So, you can put "a" in LB_KEY, and open Login-box with Alt + A. Ctrl + A will be selects all normally.
 
-	23. @define("LB_BACKTOPAGE", **true**);
+23. @define("LB_BACKTOPAGE", **true**);
 
 Here, choose on you will be redirected when success login. If true, you will be back to the actual page; if false, you will be redirected to the WordPress Dashboard.
