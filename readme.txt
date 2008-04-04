@@ -18,8 +18,8 @@ This section describes how to install the plugin and get it working.
 
 1. Extract the downloaded file and move the login-box folder to the plug-ins directory of WordPress (normally localized at <wordpress_direcorty>/wp-content/plugins/).
 2. In the WordPress admin, access “Plug-ins” area and activate the Login-box plug-in.
-3. Optional: if your WordPress theme doesn't have the wp_head hook, open *header.php* and put this code into <head> and </head>: '<?php wp_head(); ?>'
-4. Optional: if your WordPress theme doesn't have the wp_footer hook, open *footer.php* and put them: '<?php wp_footer(); ?>'
+3. Optional: if your WordPress theme doesn't have the wp_head hook, open *header.php* and put this code into &lt;head&gt; and &lt;/head&gt;: '&lt;?php wp_head(); ?&gt;'
+4. Optional: if your WordPress theme doesn't have the wp_footer hook, open *footer.php* and put them: '&lt;?php wp_footer(); ?&gt;'
 
 == Frequently Asked Questions ==
 
@@ -31,7 +31,7 @@ Try logout. Login-box doesn't work if you are *already* logged.
 
 Yes. Just use the link syntax:
 
-'<a href="http://www.myblog.com/wp-login.php" **rel="loginbox-toggle"**>Make the box!</a>'
+'&lt;a href="http://www.myblog.com/wp-login.php" **rel="loginbox-toggle"**&gt;Make the box!&lt;/a&gt;'
 
 == Options ==
 
