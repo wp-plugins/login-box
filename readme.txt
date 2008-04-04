@@ -4,7 +4,7 @@ Requires at least: 2.2
 Tested up to: 2.5
 Stable tag: trunk
 
-Login-box inserts in all your pages a "lightbox style" login form, that can be opened with Ctrl + E making faster the authentication process.
+Login-box inserts in all your pages a "lightbox style" login form, that can be opened with Ctrl + E, making faster the authentication process.
 
 == Description ==
 
@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 
 == Frequently Asked Questions ==
 
-= Login-box don't be showed / Login-box appear in the footer without style =
+= I press Ctrl + E, but the Login box does not appear. =
 
 Try logout. Login-box doesn't work if you are *already* logged.
 
