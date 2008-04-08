@@ -1,4 +1,5 @@
 === Login-box ===
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mdanillo%40gmail%2ecom&item_name=Donate%20to%20Login-box&currency_code=USD&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: admin, login, signin
 Requires at least: 2.2
 Tested up to: 2.5

@@ -8,7 +8,7 @@ Author: Marcus Danillo
 Author URI: http://danillonunes.net
 */
 
-@define("LB_THEME", "wp25");
+@define("LB_THEME", "wpclassic");
 // Type the Login-box theme
 
 @define("LB_KEY", "e");
