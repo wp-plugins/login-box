@@ -3,7 +3,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mdanillo
 Tags: admin, login, signin
 Requires at least: 2.2
 Tested up to: 2.5
-Stable tag: trunk
+Stable tag: 1.0
 
 Login-box inserts in all your pages a "lightbox style" login form, that can be opened with Ctrl + E, making faster the authentication process.
 
@@ -19,8 +19,8 @@ This section describes how to install the plugin and get it working.
 
 1. Extract the downloaded file and move the login-box folder to the plug-ins directory of WordPress (normally localized at <wordpress_direcorty>/wp-content/plugins/).
 2. In the WordPress admin, access “Plug-ins” area and activate the Login-box plug-in.
-3. Optional: if your WordPress theme doesn't have the wp_head hook, open *header.php* and put this code into &lt;head&gt; and &lt;/head&gt;: '&lt;?php wp_head(); ?&gt;'
-4. Optional: if your WordPress theme doesn't have the wp_footer hook, open *footer.php* and put them: '&lt;?php wp_footer(); ?&gt;'
+3. Optional: if your WordPress theme doesn't have the wp_head hook, open *header.php* and put this code into &lt;head&gt; and &lt;/head&gt;: `<?php wp_head(); ?>`
+4. Optional: if your WordPress theme doesn't have the wp_footer hook, open *footer.php* and put them: `<?php wp_footer(); ?>`
 
 == Frequently Asked Questions ==
 
