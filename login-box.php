@@ -7,8 +7,8 @@ Description: Inserts in all pages a hidden login box, that you can open pressing
 Author: Marcus Danillo
 Author URI: http://danillonunes.net
 */
-
-@define("LB_THEME", "wpclassic");
+// /* UNCOMMENT HERE (REMOVE THIS LINE) TO EDIT OPTIONS MANUALLY
+@define("LB_THEME", "wp25");
 // Type the Login-box theme
 
 @define("LB_KEY", "e");
@@ -23,6 +23,11 @@ Author URI: http://danillonunes.net
 @define("LB_BACKTOPAGE", true);
 // true: When login, you will be redirected to the actual page
 // false: When login, you will be redirected to the WordPress Dashboard
+
+@define("LB_FADE", true);
+// true: Show/hide Login-box with fadeIn/fadeOut
+// false: Without fadeIn/fadeOut
+// */
 
 
 // YOU CAN STOP EDIT BELOW THIS LINE
@@ -83,11 +88,15 @@ header("Pragma: cache"); ?>
 
 /* Show and hide */
 function loginbox_show() {
-	jQuery("#loginbox").show();
+	<?php if (LB_FADE)	echo 'jQuery("#loginbox").fadeIn();';
+	else						echo 'jQuery("#loginbox").show();'; ?>
+
 	jQuery("#user_login").focus();
 }
 function loginbox_hide() {
-	jQuery("#loginbox").hide();
+	<?php if (LB_FADE)	echo 'jQuery("#loginbox").fadeOut();';
+	else						echo 'jQuery("#loginbox").hide();'; ?>
+
 }
 function loginbox_toggle() {
 	if (jQuery("#loginbox").css("display") == "none") {
@@ -97,6 +106,15 @@ function loginbox_toggle() {
 		loginbox_hide();
 	}
 }
+
+/* The close button */
+/* This button is added with javascript because without javascript we not need him ;) */
+jQuery(function() {
+	jQuery("#loginbox").prepend("<p id='loginbox_close'><input type='button' value='<?php _e("close"); ?>' class='loginbox_button'/></p>");
+	jQuery("#loginbox_close input").click(function() {
+		loginbox_hide();
+	});
+});
 
 /* On key press... */
 /* Made with a bit of Visual jQuery (http://visualjquery.com) */

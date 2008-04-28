@@ -3,10 +3,14 @@
 	display: none;
 	position: fixed;
 	margin: 0;
-	padding: 100px 40px 85px 40px;
+	padding: 100px 40px 95px 40px;
 	text-align: left;
 	width: 300px;
+	height: 200px;
 	z-index: 99999;
+}
+#loginbox #loginbox_close {
+	display: none;
 }
 #loginbox * {
 	color: #fff;
