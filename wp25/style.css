@@ -18,6 +18,13 @@
 	border-radius: 5px;
 }
 
+#loginbox * {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	text-align: left;
+}
+
 #loginbox #loginbox_close {
 	display: none;
 	position: absolute;
@@ -87,6 +94,7 @@
 
 #loginbox #loginbox_rememberme input {
 	vertical-align: middle;
+	margin-right: 4px;
 }
 
 #loginbox #loginbox_submit {

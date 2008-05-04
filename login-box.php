@@ -7,30 +7,6 @@ Description: Inserts in all pages a hidden login box, that you can open pressing
 Author: Marcus Danillo
 Author URI: http://danillonunes.net
 */
-// /* UNCOMMENT HERE (REMOVE THIS LINE) TO EDIT OPTIONS MANUALLY
-@define("LB_THEME", "wp25");
-// Type the Login-box theme
-
-@define("LB_KEY", "e");
-// Choose the key (case insensitive) that will be open/close Login-box with Ctrl or Alt
-// Note that this will be cancel the default function of the Ctrl/Alt + key of the browser
-// Ex: If you choose A, users cannot use Ctrl + A to select all texts in your blog
-
-@define("LB_CTRL", true);
-// Also, you can disable Ctrl + key functions in Login-box defining this as false
-// So, Login-box only will be open with Alt + key
-
-@define("LB_BACKTOPAGE", true);
-// true: When login, you will be redirected to the actual page
-// false: When login, you will be redirected to the WordPress Dashboard
-
-@define("LB_FADE", true);
-// true: Show/hide Login-box with fadeIn/fadeOut
-// false: Without fadeIn/fadeOut
-// */
-
-
-// YOU CAN STOP EDIT BELOW THIS LINE
 
 /*  Copyright 2008 Marcus Danillo  (email : mdanillo@gmail.com)
 
@@ -49,6 +25,8 @@ Author URI: http://danillonunes.net
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+require_once "login-box-options.php";
+
 function loginbox($force = false) {
 if (!is_user_logged_in() && (!defined("LB_USED") || $force)) { ?>
 
@@ -66,7 +44,7 @@ if (!is_user_logged_in() && (!defined("LB_USED") || $force)) { ?>
 				<input type="password" name="pwd" id="user_pass" class="loginbox_text" value="" /></label>
 			</p>
 			<p id="loginbox_rememberme">
-				<label><input name="rememberme" type="checkbox" id="rememberme" class="loginbox_checkbox" value="forever" /><?php _e('Remember me'); ?></label>
+				<label><input name="rememberme" type="checkbox" id="rememberme" class="loginbox_checkbox" value="forever" /><?php _e('Remember Me'); ?></label>
 			</p>
 			<p id="loginbox_submit"><input type="submit" class="loginbox_button" value="<?php _e('Login'); ?> &raquo;" /></p>
 			<input type="hidden" name="redirect_to" value="<?php if (LB_BACKTOPAGE) echo $_SERVER['REQUEST_URI']; else { bloginfo('wpurl'); echo '/wp-admin'; }?>" />
@@ -84,60 +62,9 @@ function loginbox_script() {
 $scriptfile = LB_THEME."/scripts.js";
 header("Content-type: text/javascript");
 header("Cache-control: public");
-header("Pragma: cache"); ?>
+header("Pragma: cache");
 
-/* Show and hide */
-function loginbox_show() {
-	<?php if (LB_FADE)	echo 'jQuery("#loginbox").fadeIn();';
-	else						echo 'jQuery("#loginbox").show();'; ?>
-
-	jQuery("#user_login").focus();
-}
-function loginbox_hide() {
-	<?php if (LB_FADE)	echo 'jQuery("#loginbox").fadeOut();';
-	else						echo 'jQuery("#loginbox").hide();'; ?>
-
-}
-function loginbox_toggle() {
-	if (jQuery("#loginbox").css("display") == "none") {
-		loginbox_show();
-	}
-	else {
-		loginbox_hide();
-	}
-}
-
-/* The close button */
-/* This button is added with javascript because without javascript we not need him ;) */
-jQuery(function() {
-	jQuery("#loginbox").prepend("<p id='loginbox_close'><input type='button' value='<?php _e("close"); ?>' class='loginbox_button'/></p>");
-	jQuery("#loginbox_close input").click(function() {
-		loginbox_hide();
-	});
-});
-
-/* On key press... */
-/* Made with a bit of Visual jQuery (http://visualjquery.com) */
-jQuery(document).keydown(function(e) {
-	var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-	key = "["+key+"]";
-	lbkey = "[<?php echo ord(strtolower(LB_KEY)) ?>][<?php echo ord(strtoupper(LB_KEY)) ?>]";
-	lbauxkey = e.altKey<?php if (LB_CTRL) echo " || e.ctrlKey" ?>;
-	lbkey.indexOf(key) != -1 ? keye = true : keye = false;
-	if (keye && lbauxkey) {
-		loginbox_toggle();
-		return false;
-	};
-});
-
-/* On link[rel=loginbox-toggle] clicked... */
-jQuery(function() {
-	jQuery("[rel*='loginbox-toggle']").click(function(){
-		loginbox_toggle();
-		return false;
-	});
-});
-<?php
+include "login-box-script.js";
 if (file_exists($scriptfile)) include $scriptfile;
 die();
 }
@@ -169,14 +96,18 @@ if (!is_user_logged_in()) { ?>
 if (empty($_COOKIE[TEST_COOKIE])) setcookie(TEST_COOKIE, 'WP Cookie check');
 
 if (array_key_exists('script', $_GET)) {
-	@include "../../../wp-config.php";
+if (defined("LB_WPDIR")) require LB_WPDIR . "wp-config.php";
+else require "../../../wp-config.php";
 	loginbox_script();
 }
 if (array_key_exists('style', $_GET)) {
-	@include "../../../wp-config.php";
+if (defined("LB_WPDIR")) include LB_WPDIR . "wp-config.php";
+else include "../../../wp-config.php";
 	loginbox_style();
 }
 
 add_action('wp_head', 'loginbox_head');
 add_action('wp_footer', 'loginbox');
+
+include "login-box-widget.php";
 ?>

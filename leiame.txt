@@ -1,0 +1,59 @@
+=== Login-box ===
+Doações: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mdanillo%40gmail%2ecom&item_name=Donate%20to%20Login-box&currency_code=USD&bn=PP%2dDonationsBF&charset=UTF%2d8
+
+== Description ==
+
+Login-box (caixa de login) é um plugin para WordPress que insere em todas as suas páginas um formulário de login que agiliza o processo de autenticação. Como a Login-box é oculta, ela não atrapalha nem chama atenção de seus leitores para essa parte do blog que não lhes interessa, mas, para você (e os demais editores do seu blog), torna-se bastante prática por poder ser aberta com uma simples combinação de teclas.
+
+A Login-box apresenta um visual idêntico à página de login padrão do WordPress, mas que pode ser facilmente modificado através do uso de temas, para que combine melhor com a estética do seu site.
+
+== Instalação ==
+
+This section describes how to install the plugin and get it working.
+
+1. Após extrair o arquivo do download, mova a pasta login-box para o diretório de plug-ins do WordPress (que normalmente está localizado em <diretório_do_wordpress>/wp-content/plugins/).
+2. No painel de administração do WordPress, acesse a área “Plug-ins” (”Extensões”, em português) e ative o plug-in Login-box.
+3. Opcional: Se seu tema não tem a função wp_head, abra o arquivo *header.php* e coloque esse código entre as tags `<head>` e `</head>`: `<?php wp_head(); ?>`
+4. Opcional: Se seu tema não tem a função wp_footer, abra o arquivo *footer.php* e cole esse código: `<?php wp_footer(); ?>`
+
+== Perguntas Freqüentes ==
+
+= Eu aperto as teclas de atalho, mas o Login-box não aparece... =
+
+Primeiramente, tente fazer o "logout" do sistema. O Login-box simplesmente não funciona se você *já está* logado.
+
+= JÁ FIZ o logout, mas nada do Login-box aparecer. =
+
+Leia os passos 3 e 4 da seção de instalação.
+
+= Eu posso usar um link para abrir/fechar o Login-box? =
+
+Sim. Faça um link parecido com esse:
+
+`<a href="http://www.meublog.com/wp-login.php" rel="loginbox-toggle">Faça-se a caixa!</a>`
+
+= Eu quero fazer um tema para o Login-box. Você tem um bom tutorial? =
+
+Não :(
+
+Mas se você come HTML e CSS no café da manhã, dê uma olhada nos arquivos dos temas padrões do Login-box. É fácil, eu garanto!
+
+== Opções ==
+
+Abra o arquivo login-box.php em um editor de textos ou no editor de plug-ins embutido no WordPress, e encontre essas linhas:
+
+11. @define("LB_THEME", "wp25");
+
+Aqui, coloque o nome do tema que você quer usar. Você pode baixar mais temas na internet ou criar o seu próprio, com base nos temas "wp25" e “wpclassic” que vêm incluídos por padrão.
+
+14. @define("LB_KEY", "e");
+
+Aqui, escolha a tecla que você deverá apertar junto com Ctrl ou Alt para abrir/fechar a Login-box. Pode ser qualquer caractere alfanumérico, indiferente de ser maiúscula ou minúscula, mas lembre-se que algumas teclas executam funções especiais no seu navegador (e no dos seus leitores) e, se você escolhê-la, ela será desativada pelo Login-box. (Ex: Ctrl + A seleciona toda a página), por isso eu recomendo que você deixe o valor padrão “e”.
+
+19. @define("LB_CTRL", true);
+
+Mesmo assim, se você quiser definir uma tecla ”especial” para abrir o Login-box, você pode definir false aqui e desativar o uso do Ctrl pelo Login-box. Assim, se você colocar “a” em LB_KEY, você poderá abrir o Login-box com Alt + A e usar o Ctrl + A para selecionar os textos normalmente.
+
+27. @define("LB_FADE", true);
+
+Aqui, defina true se você quer que o Login-box esmaeça quando for aberto/fechado.
