@@ -15,12 +15,13 @@ function loginbox_widget_init() {
 
 	function loginbox_widget($args) {
 		extract($args);
-		$options = get_option('loginbox_widget');
-		$title = empty($options['title']) ? 'Login-box' : $options['title'];
+		$options = get_option('loginbox');
+		$title = empty($options['widget_title']) ? 'Login-box' : $options['widget_title'];
 
 		if (!is_user_logged_in()) {
 			echo $before_widget;
 			echo $before_title . $title . $after_title;
+			echo '<ul>';
 			echo '<li><a href="';
 			bloginfo('wpurl');
 			echo '/wp-login.php';
@@ -30,35 +31,35 @@ function loginbox_widget_init() {
 			echo '<li>';
 			loginbox();
 			echo '</li>';
-	
+			if ($options['widget_register']) {
 				echo '<li><a href="';
 				bloginfo('wpurl');
 				echo '/wp-login.php?action=register" title="'.__('Register').'">'.__('Register').'</a></li>';
+			}
+			echo '</ul>';
 			echo $after_widget;
 		}
 	}
 
 	function loginbox_widget_control() {
-		$options = get_option('loginbox_widget');
-		if ( $_POST['loginbox-submit'] ) {
-			$newoptions['title'] = strip_tags(stripslashes($_POST['loginbox-title']));
-			$newoptions['register'] = strip_tags(stripslashes($_POST['loginbox-register']));
+		$options = get_option('loginbox');
+		if ($_POST['loginbox-submit']) {
+			$newoptions['widget_title'] = strip_tags(stripslashes($_POST['loginbox-title']));
+			$newoptions['widget_register'] = strip_tags(stripslashes($_POST['loginbox-register']));
+
+			$newoptions = array_merge($options, $newoptions);
+			update_option('loginbox', $newoptions);
 		}
 
-		if ( $options != $newoptions ) {
-			$options = $newoptions;
-			update_option('loginbox_widget', $options);
-		}
-
-	$title = htmlspecialchars($options['title'], ENT_QUOTES);
-	$register = htmlspecialchars($options['register'], ENT_QUOTES);
+	$title = htmlspecialchars($options['widget_title'], ENT_QUOTES);
+	$register = htmlspecialchars($options['widget_register'], ENT_QUOTES);
 ?>
         <div>
         <label for="loginbox-title">
 		<?php _e('Title'); ?>:
 		<input class="widefat" type="text" id="loginbox-title" name="loginbox-title" value="<?php echo $title; ?>" />
 	</label>
-
+	<br/>
         <label for="loginbox-register">
 		<input class="checkbox" type="checkbox" id="loginbox-register" name="loginbox-register" value="1" <?php if ($register) echo 'checked="checked"'; ?> />
 		<?php _e('Show "Register" link', 'login-box'); ?>

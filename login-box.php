@@ -2,7 +2,7 @@
 /*
 Plugin Name: Login-box
 Plugin URI: http://danillonunes.net/wordpress/login-box
-Version: 1.0
+Version: 2.0 alpha
 Description: Inserts in all pages a hidden login box, that you can open pressing Ctrl + E (or Alt + E)
 Author: Marcus Danillo
 Author URI: http://danillonunes.net
@@ -25,10 +25,18 @@ Author URI: http://danillonunes.net
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-require_once "login-box-options.php";
+// Get the Login-box definitions
+@include "login-box-config.php";
+include "login-box-options.php";
 
+// The primary Login-box function
 function loginbox($force = false) {
-if (!is_user_logged_in() && (!defined("LB_USED") || $force)) { ?>
+
+// Login-box is showed only if the user isn't logged, of course
+// The constant
+if (!is_user_logged_in() && (!defined("LB_USED") || $force)) {
+
+?>
 
 
 <!-- Start Login-Box -->
