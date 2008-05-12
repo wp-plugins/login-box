@@ -112,8 +112,6 @@ function loginbox_add_page() {
 	add_submenu_page('themes.php', 'Login-box', 'Login-box', 'edit_themes', 'login-box', 'loginbox_options');
 }
 
-add_action('admin_menu', 'loginbox_add_page');
-
 // Function to set default options and update in database
 function loginbox_set_default_options() {
 	$options['theme']      = 'wp25';

@@ -25,9 +25,19 @@ Author URI: http://danillonunes.net
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+// Is script running alone or included in WordPress core?
+if (!defined('ABSPATH'))
+	include '../../../wp-config.php';
+
 // Get the Login-box definitions
-@include "login-box-config.php";
-include "login-box-options.php";
+if (file_exists(ABSPATH.'/wp-content/plugins/login-box/login-box-config.php'))
+	include ABSPATH.'/wp-content/plugins/login-box/login-box-config.php';
+elseif (file_exists('login-box-config.php'))
+	include 'login-box-config.php';
+else
+	include 'login-box-options.php';
+
+
 
 // The primary Login-box function
 function loginbox($force = false) {
@@ -114,6 +124,7 @@ else include "../../../wp-config.php";
 	loginbox_style();
 }
 
+add_action('admin_menu', 'loginbox_add_page');
 add_action('wp_head', 'loginbox_head');
 add_action('wp_footer', 'loginbox');
 
