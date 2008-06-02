@@ -2,7 +2,7 @@
 /*
 Plugin Name: Login-box
 Plugin URI: http://danillonunes.net/wordpress/login-box
-Version: 2.0 alpha
+Version: 2.0 beta
 Description: Inserts in all pages a hidden login box, that you can open pressing Ctrl + E (or Alt + E)
 Author: Marcus Danillo
 Author URI: http://danillonunes.net
@@ -34,6 +34,8 @@ if (file_exists(ABSPATH.'/wp-content/plugins/login-box/login-box-config.php'))
 	include ABSPATH.'/wp-content/plugins/login-box/login-box-config.php';
 elseif (file_exists('login-box-config.php'))
 	include 'login-box-config.php';
+elseif (file_exists(ABSPATH.'/wp-content/plugins/login-box/login-box-options.php'))
+	include ABSPATH.'/wp-content/plugins/login-box/login-box-options.php';
 else
 	include 'login-box-options.php';
 
@@ -43,7 +45,7 @@ else
 function loginbox($force = false) {
 
 // Login-box is showed only if the user isn't logged, of course
-// The constant
+// The constant LB_USED is defined when 
 if (!is_user_logged_in() && (!defined("LB_USED") || $force)) {
 
 ?>
@@ -126,7 +128,8 @@ else include "../../../wp-config.php";
 
 add_action('admin_menu', 'loginbox_add_page');
 add_action('wp_head', 'loginbox_head');
-add_action('wp_footer', 'loginbox');
+if (!defined("LB_AUTO") || LB_AUTO != false)
+	add_action('wp_footer', 'loginbox');
 
 include "login-box-widget.php";
 ?>
