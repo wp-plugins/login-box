@@ -65,10 +65,15 @@ jQuery(function($) {
 	$("#loginbox-opt-key input[name='loginbox-key']").blur(function() {
 		keyboard_close();
 	});
+	$("#loginbox-opt-key input[name='loginbox-key']").change(function() {
+		var l = $(this).val();
+		$("#loginbox-ctrl-key").html(l);
+	});
 
 	$("#keyboard input").click(function() {
 		var l = $(this).val();
 		$("#loginbox-opt-key input[name='loginbox-key']").val(l);
+		$("#loginbox-ctrl-key").html(l);
 		keyboard_close();
 	});
 
@@ -186,7 +191,7 @@ loginbox_get_themes();
 <br/>
 <label>
 <input type="checkbox" name="loginbox-ctrl" value="1" <?php if ($options['ctrl']) echo 'checked="checked"'; ?>>
-<?php printf(__('Also open with <strong>Ctrl</strong> + <span>%s</span>', 'login-box'), $options['key']); ?>
+<?php printf(__('Also open with <strong>Ctrl</strong> + <span id="loginbox-ctrl-key">%s</span>', 'login-box'), $options['key']); ?>
 </label>
 </p>
 
@@ -232,7 +237,7 @@ loginbox_get_themes();
 <input type="hidden" name="tax" value="0">
 <input type="hidden" name="lc" value="BR">
 <input type="hidden" name="bn" value="PP-DonationsBF">
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="vertical-align: bottom">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Make a donation to Login-box!" alt="Donate with PayPal" style="vertical-align: bottom">
 <span style="font-size: 2em">US$ </span><input type="text" name="amount" value="5" style="font-size: 2em; border: none; padding: 0;" size="2">
 </form>
 

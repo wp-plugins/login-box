@@ -44,6 +44,11 @@ No :(
 
 But if you eat HTML and CSS in breakfast, see the files of the default Login-box themes. It's easy, I assure!
 
+== Screenshots ==
+
+1. The Login-box opened into a blog
+2. Login-box options at the WordPress Panel
+
 == Options ==
 
 Open login-box.php in a text editor or in embbed WordPress Plug-in editor, and find this lines:
