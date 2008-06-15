@@ -26,9 +26,8 @@ function loginbox_widget_init() {
 			bloginfo('wpurl');
 			echo '/wp-login.php';
 			if (LB_BACKTOPAGE) echo '?redirect_to='.$_SERVER['REQUEST_URI'].'" ';
-			echo 'onclick="loginbox_toggle(); return false;" title="'.get_bloginfo('name').' - '.__('Login').'" rel="loginbox-toggle">'.__('Login').'</a></li>';
-	
-			echo '<li>';
+			echo ' title="'.get_bloginfo('name').' - '.__('Login').'" rel="loginbox-toggle">'.__('Login').'</a>';
+			echo '';
 			loginbox();
 			echo '</li>';
 			if ($options['widget_register']) {

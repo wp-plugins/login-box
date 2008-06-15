@@ -115,6 +115,9 @@ ol {
 code {
 	background-color: #eee;
 }
+.q {
+	font-weight: bold;
+}
 #footer {
 	text-align: right;
 	font-size: 0.9em;
@@ -206,7 +209,7 @@ jQuery(function($) {
 			<dd><a href="http://danillonunes.net/wordpress/login-box">Login-box</a></dd>
 			<br/>
 			<dt>Versão:</dt>
-			<dd>2.0 (1 Jun 2008)</dd>
+			<dd>2.0 (15 Jun 2008)</dd>
 			<br/>
 			<dt>Descrição:</dt>
 			<dd>Insere uma caixa de login oculta em todas as páginas, que você pode abrir pressionando uma combinação de teclas (como Ctrl + E).</dd>
@@ -315,7 +318,7 @@ jQuery(function($) {
 			<dd><a href="http://danillonunes.net/en/wordpress/login-box">Login-box</a></dd>
 			<br/>
 			<dt>Version:</dt>
-			<dd>1.0 (1 Apr 2008)</dd>
+			<dd>2.0 (15 Jun 2008)</dd>
 			<br/>
 			<dt>Description:</dt>
 			<dd>Inserts in all pages a hidden login box, that you can open pressing Ctrl + E</dd>
@@ -329,6 +332,47 @@ jQuery(function($) {
 		<ol>
 			<li>Extract the downloaded file and move the <em>login-box</em> folder to the plug-ins directory of WordPress (normally localized at <em>&lt;wordpress_direcorty&gt;/wp-content/plugins/</em>).</li>
 			<li>In the WordPress admin, access "Plug-ins" area and activate the Login-box plug-in.</li>
+			<li>Optional: If your WordPress theme doesn't have the wp_head hook, open the <em>header.php</em>  file and put this code between <em>&lt;head&gt;</em> and <em>&lt;/head&gt;</em>: <code>&lt;?php wp_head(); ?&gt;</code></li>
+			<li>Optional: If your WordPress theme doesn't have the wp_footer hook, open the <em>footer.php</em> and put them: <code>&lt;?php wp_footer(); ?&gt;</code></li>
+		</ol>
+	</div>
+	<div id="en-faq">
+		<ol>
+			<li>
+				<p class="q">
+				I press the key comb, but the Login box does not appear.
+				</p>
+				<p class="r">
+				Try logout. Login-box doesn't work if you are <strong>already</strong> logged.
+				</p>
+			</li>
+			<li>
+				<p class="q">
+				I'm ALREADY unlogged. Login-box just don't works...
+				</p>
+				<p class="r">
+				Read steps 3 and 4 in the Installation section.
+				</p>
+			</li>
+			<li>
+				<p class="q">
+				Can open/close the Login-box with a link?
+				</p>
+				<p class="r">
+				Yes. Just use the link syntax:
+				<code>&lt;a href="http://www.meublog.com/wp-login.php" rel="loginbox-toggle"&gt;Make the box!!&lt;/a&gt;</code>
+				</p>
+			</li>
+			<li>
+				<p class="q">
+				I want to make a theme for the Login-box. Do you have a good tutorial?
+				</p>
+				<p class="r">
+				No :(
+				<br/>
+				But if you eat HTML and CSS in breakfast, see the files of the default Login-box themes. It's easy, I assure!
+				</p>
+			</li>
 		</ol>
 	</div>
 	<div id="en-options">
@@ -356,6 +400,15 @@ jQuery(function($) {
 	<div id="en-changelog">
 		<h2>Changelog</h2>
 		<ul>
+			<li>2.0
+				<ul>
+					<li>Add a options menu into WordPress Panel (suggestion by <a href="http://www.pblog.com.br/" title="pBlog">Érico Oliveira</a>).</li>
+					<li>Add the “wp25” theme, that now is the standard of Login-box.</li>
+					<li>Add a fadein/fadeout option.</li>
+					<li>Add a “close” button (suggestion by <a href="http://www.rodrigoghedin.com.br/" title="Rodrigo Ghedin">Rodrigo Ghedin</a>).</li>
+					<li>Now you can use Login-box as a WordPress widget.</li>
+				</ul>
+			</li>
 			<li>1.0
 				<ul>
 					<li>Well, we have just a 1.0 version for now...</li>

@@ -5,11 +5,11 @@ Requires at least: 2.2
 Tested up to: 2.5
 Stable tag: 1.0
 
-Login-box inserts in all your pages a "lightbox style" login form, that can be opened with Ctrl + E, making faster the authentication process.
+Login-box inserts into all your pages a "lightbox style" login form, that can be opened with Ctrl + E, making faster the authentication process.
 
 == Description ==
 
-Login-box is a WordPress plugin that inserts in all your pages a login form, making faster the authentication process. As the Login-box is hidden, it doesn’t draws attention of your readers to this part of the blog that doesn’t interest them, but, for you (and the others editors of your blog), becomes quite practical to be opened with a simple combination of keys.
+Login-box is a WordPress plugin that inserts into all your pages a login form, making faster the authentication process. As the Login-box is hidden, it doesn’t draws attention of your readers to this part of the blog that doesn’t interest them, but, for you (and the others editors of your blog), becomes quite practical to be opened with a simple combination of keys.
 
 The Login-box presents a visual identical to the default login page of WordPress, but it can be easily modified with themes.
 
@@ -19,12 +19,12 @@ This section describes how to install the plugin and get it working.
 
 1. Extract the downloaded file and move the login-box folder to the plug-ins directory of WordPress (normally localized at <wordpress_direcorty>/wp-content/plugins/).
 2. In the WordPress admin, access “Plug-ins” area and activate the Login-box plug-in.
-3. Optional: if your WordPress theme doesn't have the wp_head hook, open *header.php* and put this code into `<head>` and `</head>`: `<?php wp_head(); ?>`
+3. Optional: if your WordPress theme doesn't have the wp_head hook, open *header.php* and put this code between `<head>` and `</head>`: `<?php wp_head(); ?>`
 4. Optional: if your WordPress theme doesn't have the wp_footer hook, open *footer.php* and put them: `<?php wp_footer(); ?>`
 
 == Frequently Asked Questions ==
 
-= I press Ctrl + E, but the Login box does not appear. =
+= I press key comb, but the Login box does not appear. =
 
 Try logout. Login-box doesn't work if you are *already* logged.
 
@@ -76,5 +76,10 @@ Here, choose true to show a fade effect when open/close Login-box.
 == Changelog ==
 
 2.0
-
+*  Add a options menu into WordPress Panel (suggestion by Érico Oliveira).
+* Add the “wp25” theme, that now is the standard of Login-box.
+* Add a fadein/fadeout option.
+* Add a “close” (suggestion by Rodrigo Ghedin).
+* Now you can use Login-box as a WordPress widget.
 1.0
+* Well, we have just a 1.0 version for now...
