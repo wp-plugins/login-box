@@ -39,7 +39,7 @@ jQuery(function($) {
 			"A","S","D","F","G","H","J","K","L","BR",
 			"Z","X","C","V","B","N","M"
 		);
-		$("#loginbox-opt-key input[name='loginbox-key']").after("<span id='keyboard' class='tablenav'></span>");
+		$("#loginbox-opt-key input[name='loginbox-key']").parent("label").after("<span id='keyboard' class='tablenav'></span>");
 		$("#keyboard").hide();
 		$.each(keymap, function(i, n){
 			if (n == "BR")
