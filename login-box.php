@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Login-box
-Plugin URI: http://danillonunes.net/wordpress/login-box
+Plugin URI: http://danillonunes.net/en/wordpress/login-box
 Version: 2.0 beta
-Description: Inserts in all pages a hidden login box, that you can open pressing Ctrl + E (or Alt + E)
+Description: Inserts in all pages a hidden login box, that you can open pressing a combination of keys (like Ctrl + E) 
 Author: Marcus Danillo
-Author URI: http://danillonunes.net
+Author URI: http://danillonunes.net/en
 */
 
 /*  Copyright 2008 Marcus Danillo  (email : mdanillo@gmail.com)
@@ -24,6 +24,8 @@ Author URI: http://danillonunes.net
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+load_plugin_textdomain('login-box',$path='wp-content/plugins/login-box/languages');
 
 // Is script running alone or included in WordPress core?
 if (!defined('ABSPATH'))

@@ -1,4 +1,5 @@
 <?php
+
 function loginbox_options() {
 	// First, get the options from WordPress database
 	$options = get_option('loginbox');
@@ -220,7 +221,7 @@ loginbox_get_themes();
 </div>
 
 <p class="submit">
-<input type="submit" id="submit" name="submit" value="<?php _e('Update Options »') ?>" />
+<input type="submit" id="submit" name="submit" value="<?php _e('Update Options »', 'login-box') ?>" />
 </p>
 
 </form>
