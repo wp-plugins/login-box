@@ -25,8 +25,6 @@ Author URI: http://danillonunes.net/en
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-load_plugin_textdomain('login-box',$path='wp-content/plugins/login-box/languages');
-
 // Is script running alone or included in WordPress core?
 if (!defined('ABSPATH'))
 	include '../../../wp-config.php';
@@ -41,7 +39,7 @@ elseif (file_exists(ABSPATH.'/wp-content/plugins/login-box/login-box-options.php
 else
 	include 'login-box-options.php';
 
-
+load_plugin_textdomain('login-box',$path='wp-content/plugins/login-box/languages');
 
 // The primary Login-box function
 function loginbox($force = false) {
