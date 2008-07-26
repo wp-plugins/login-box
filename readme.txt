@@ -83,14 +83,3 @@ Here, set true if you want that Login-box opens with a fade-in effect; Set false
 22. @define("LB_AUTO", true);
 
 Here, leave true and the Login-box will be automatically inserted into your blog (see steps 3 and 4 of the "install" section); If you prefer to choose where the Login-box will appear in your blog, set here as false and put in its theme, the code `<?php loginbox(); ?>` where you want it to appear. 
-
-== Changelog ==
-
-2.0
-* Add a options menu into WordPress Panel (suggestion by Érico Oliveira).
-* Add the “wp25” theme, that now is the standard of Login-box.
-* Add a fadein/fadeout option.
-* Add a “close” (suggestion by Rodrigo Ghedin).
-* Add a WordPress widget with Login-box.
-1.0
-* Well, we have just a 1.0 version for now...
