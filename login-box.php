@@ -2,7 +2,7 @@
 /*
 Plugin Name: Login-box
 Plugin URI: http://danillonunes.net/en/wordpress/login-box
-Version: 2.0.1
+Version: 2.0.2
 Description: Inserts in all pages a hidden login box, that you can open pressing a combination of keys (like Ctrl + E) 
 Author: Marcus Danillo
 Author URI: http://danillonunes.net/en
