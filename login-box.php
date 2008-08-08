@@ -132,7 +132,8 @@ function loginbox_install() {
 
 register_activation_hook(__FILE__, 'loginbox_install');
 
-add_action('admin_menu', 'loginbox_add_page');
+if (function_exists('loginbox_add_page'))
+	add_action('admin_menu', 'loginbox_add_page');
 add_action('wp_head', 'loginbox_head');
 if (!defined("LB_AUTO") || LB_AUTO != false)
 	add_action('wp_footer', 'loginbox');
