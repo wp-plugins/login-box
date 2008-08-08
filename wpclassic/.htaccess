@@ -1,5 +1,0 @@
-# Block scripts.js and style.css files from direct access
-<FilesMatch "(scripts.js|style.css)">
-	Order deny,allow
-	Deny from all
-</FilesMatch>
