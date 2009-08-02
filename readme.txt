@@ -3,7 +3,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mdanillo
 Tags: admin, login, signin
 Requires at least: 2.2
 Tested up to: 2.6
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 
 Login-box inserts into all your pages a "lightbox style" login form, that can be opened with Ctrl + E, making faster the authentication process.
 
