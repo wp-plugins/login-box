@@ -270,6 +270,7 @@ function loginbox_set_options() {
 
 	if (!defined('LB_THEME'))      define("LB_THEME", $options['theme']);
 	if (!defined('LB_KEY'))        define("LB_KEY", $options['key']);
+	if (!defined('LB_FADE'))      define("LB_FADE", $options['fade']);
 	if (!defined('LB_CTRL'))       define("LB_CTRL", $options['ctrl']);
 	if (!defined('LB_BACKTOPAGE')) define("LB_BACKTOPAGE", $options['backtopage']);
 	if (!defined('LB_AUTO'))       define("LB_AUTO", true);

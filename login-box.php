@@ -78,19 +78,8 @@ if (!defined("LB_USED")) define("LB_USED", true);
 }
 }
 
-function loginbox_script() {
-$scriptfile = LB_THEME."/scripts.js";
-header("Content-type: text/javascript");
-header("Cache-control: public");
-header("Pragma: cache");
-
-include "login-box-script.js";
-if (file_exists($scriptfile)) include $scriptfile;
-die();
-}
-
 function loginbox_style() {
-$stylefile = LB_THEME."/style.css";
+
 header("Content-type: text/css");
 header("Cache-control: public");
 header("Pragma: cache");
@@ -99,13 +88,37 @@ die();
 }
 
 function loginbox_head() {
-if (!is_user_logged_in()) { ?>
+if (!is_user_logged_in()) {
+  $login_box_dir = getcwd() . "/wp-content/plugins/login-box/";
+  $scriptfile = $login_box_dir . LB_THEME . "/scripts.js";
+  $stylefile = $login_box_dir . LB_THEME . "/style.css";
+?>
 
 
 <!-- Start Login-Box -->
 <?php wp_print_scripts('jquery'); ?>
-<script type="text/javascript" src="<?php bloginfo('wpurl'); ?>/wp-content/plugins/login-box/login-box.php?script=<?php echo LB_THEME; ?>"></script>
-<link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/plugins/login-box/login-box.php?style=<?php echo LB_THEME; ?>" type="text/css" media="screen" />
+<script type="text/javascript">
+  var loginbox = {
+    theme: '<?php echo LB_THEME; ?>',
+    key: '<?php echo LB_KEY; ?>',
+    keycode: '[<?php echo ord(strtolower(LB_KEY)) ?>][<?php echo ord(strtoupper(LB_KEY)) ?>]',
+    ctrl: <?php echo LB_CTRL; ?>,
+    backtopage: <?php echo LB_BACKTOPAGE; ?>,
+    fade: <?php echo LB_FADE; ?>,
+    auto: <?php echo LB_AUTO; ?>,
+    string: {
+      close: '<?php _e("close"); ?>'
+    }
+  };
+</script>
+<script type="text/javascript" src="<?php bloginfo('wpurl'); ?>/wp-content/plugins/login-box/login-box-script.js"></script>
+<?php if (file_exists($scriptfile)): ?>
+  <script type="text/javascript" src="<?php bloginfo('wpurl'); ?>/wp-content/plugins/login-box/<?php echo LB_THEME; ?>/scripts.js"></script>
+<?php endif; ?>
+
+<?php if (file_exists($stylefile)): ?>
+  <link rel="stylesheet" href="<?php bloginfo('wpurl'); ?>/wp-content/plugins/login-box/<?php echo LB_THEME; ?>/style.css" type="text/css" media="screen" />
+<?php endif; ?>
 <!-- End Login-Box -->
 
 
@@ -115,11 +128,6 @@ if (!is_user_logged_in()) { ?>
 
 if (empty($_COOKIE[TEST_COOKIE])) setcookie(TEST_COOKIE, 'WP Cookie check');
 
-if (array_key_exists('script', $_GET)) {
-if (defined("LB_WPDIR")) require LB_WPDIR . "wp-config.php";
-else require "../../../wp-config.php";
-	loginbox_script();
-}
 if (array_key_exists('style', $_GET)) {
 if (defined("LB_WPDIR")) include LB_WPDIR . "wp-config.php";
 else include "../../../wp-config.php";

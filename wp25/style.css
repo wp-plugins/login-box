@@ -37,7 +37,7 @@
 	display: block;
 	height: 28px;
 	width: 28px;
-	background: url('<?php echo LB_THEME; ?>/close.png') 0 0 no-repeat;
+	background: url('close.png') 0 0 no-repeat;
 }
 #loginbox #loginbox_close input:hover {
 	background-position: 0 -28px;
@@ -45,7 +45,7 @@
 
 #loginbox #loginbox_wordpresslink {
 	display: block;
-	background: url('<?php echo LB_THEME; ?>/wordpress-logo.png') 0 0 no-repeat;
+	background: url('wordpress-logo.png') 0 0 no-repeat;
 	width: 65px;
 	height: 66px;
 	margin-bottom: 4px;
@@ -54,7 +54,7 @@
 
 #loginbox #loginbox_wordpresslink span {
 	display: block;
-	background: url('<?php echo LB_THEME; ?>/wordpress.png') 0 0 no-repeat;
+	background: url('wordpress.png') 0 0 no-repeat;
 	width: 217px;
 	height: 30px;
 	position: absolute;

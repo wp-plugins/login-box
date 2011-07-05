@@ -1,5 +1,5 @@
 #loginbox {
-	background: url('<?php echo LB_THEME; ?>/loginbox.png') top center no-repeat;
+	background: url('loginbox.png') top center no-repeat;
 	display: none;
 	position: fixed;
 	margin: 0;
@@ -47,7 +47,7 @@
 	text-align: right;
 }
 #loginbox .loginbox_button {
-	background: url('<?php echo LB_THEME; ?>/fade-butt.png');
+	background: url('fade-butt.png');
 	border: 3px double #999;
 	border-left-color: #ccc;
 	border-top-color: #ccc;
@@ -61,4 +61,3 @@
 	border-left-color: #999;
 	border-top-color: #999;
 }
-<?php // You can use PHP commands in this file! ?>

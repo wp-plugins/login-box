@@ -13,4 +13,3 @@ jQuery(function() {
 	posy = (windowheight - boxheight) / 2;
 	jQuery("#loginbox").css({ left: posx + "px", top: posy + "px" });
 });
-<?php // You can use PHP commands in this file! ?>
